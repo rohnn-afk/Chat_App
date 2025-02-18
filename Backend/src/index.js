@@ -36,12 +36,15 @@ app.use('/api/user',authRouter)
 app.use('/api/messages',messagesRouter)
 
 
-  app.use(express.static(path.join(__dirname,'../Frontend/ChatApp/dist')))
+const frontendPath = path.join(__dirname, "../Frontend/ChatApp/dist");
+console.log("✅ Serving frontend from:", frontendPath);
 
-  app.get("*",(req,res)=>{
-    res.sendFile(path.join(__dirname,"../Frontend","ChatApp","dist","index.html"))
-  })
+// Serve static frontend files
+app.use(express.static(frontendPath));
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(frontendPath, "index.html"));
+});
 
 
 server.listen(process.env.PORT,()=>{
