@@ -35,13 +35,13 @@ app.get('/',(req,res)=>{
 app.use('/api/user',authRouter)
 app.use('/api/messages',messagesRouter)
 
-if(process.env.NODE_ENV === 'production'){
+
   app.use(express.static(path.join(__dirname,'../Frontend/ChatApp/dist')))
 
   app.get("*",(req,res)=>{
     res.sendFile(path.join(__dirname,"../Frontend","ChatApp","dist","index.html"))
   })
-}
+
 
 
 server.listen(process.env.PORT,()=>{
