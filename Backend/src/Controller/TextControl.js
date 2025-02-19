@@ -7,7 +7,7 @@ export const getAllUsers = async (req,res) => {
 
     try {
         
-        const userID = res.user._id
+        const userID = req.user._id
         const allUser = await UserModel.find({_id : {$ne: userID}}).select("-password")
 
         return  res.status(200).json(allUser)
@@ -21,7 +21,7 @@ export const getAllUsers = async (req,res) => {
 export const getMessages = async (req,res) => {
     try {
         const {id:userToChatId} = req.params
-        const userID = res.user._id
+        const userID = req.user._id
 
         const messages = await TextModel.find({
             $or:[{
@@ -42,7 +42,7 @@ export const sendMessage = async(req,res) =>{
     try {
         
         const {id:recieverID} = req.params
-        const senderID = res.user._id
+        const senderID = req.user._id
 
 
         const text = req.body.text

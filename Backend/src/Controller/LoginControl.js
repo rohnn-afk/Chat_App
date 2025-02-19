@@ -108,7 +108,7 @@ export const updateUser = async (req, res) => {
       }
   
       const file = req.files.profilepic; 
-      const userID = res.user._id;
+      const userID = req.user._id;
   
     
       const result = await uploadCloudImage(file.tempFilePath);
@@ -131,7 +131,7 @@ export const updateUser = async (req, res) => {
 export const checkAuth = async (req,res)=>{
 
     try {
-        return res.status(201).json(res.user)
+        return res.status(201).json(req.user)
     } catch (error) {
         return res.status(500).json({ success: false, message: "Server Error at checkauth ", error });
     }

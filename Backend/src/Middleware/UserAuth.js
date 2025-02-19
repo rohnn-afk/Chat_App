@@ -26,7 +26,7 @@ export const UserAuth = async (req,res,next) =>{
             return res.status(401).json({ success: false, message: "Unauthorised - User not found" })
         }
 
-        res.user = user
+        req.user = user
 
 
         next()
