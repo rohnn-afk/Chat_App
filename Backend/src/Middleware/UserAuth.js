@@ -32,7 +32,7 @@ export const UserAuth = async (req,res,next) =>{
         next()
 
     } catch (error) {
-        return res.status(501).json({ success: false, message: "Server Error while authenticating",error })
+        return res.status(501).json({ success: false, message: "Server Error while authenticating",error:error.message })
     }
 
 }
