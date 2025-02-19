@@ -18,10 +18,10 @@ import { UserThemeStore } from './Store/UserThemeStore'
 
 function App() {
 
-  const {authUser,checkAuth,isCheckingAuth,onlineUsers} = UserAuthStore()
+  const {authUser,checkAuth,isCheckingAuth} = UserAuthStore()
   const {theme} = UserThemeStore()
 
-  console.log(onlineUsers)
+  // console.log(onlineUsers)
   useEffect(() => {
     checkAuth()
 

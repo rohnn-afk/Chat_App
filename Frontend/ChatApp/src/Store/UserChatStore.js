@@ -18,7 +18,7 @@ export const UserChatStore = create((set,get)=>({
             set({users:res.data})
 
         } catch (error) {
-            console.log(error)
+            console.log("getuser errorororo",error)
             toast.error(error.response.data.message)
         } finally {
             set({isUsersLoading:false})

@@ -18,7 +18,6 @@ socket:null,
 checkAuth: async()=>{
     try {
         const res = await axiosInstance.get('/user/check')
-
         set({authUser:res.data})
         get().connectSocket()
 
