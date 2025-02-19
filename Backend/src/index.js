@@ -11,8 +11,8 @@ import {app,server,io} from "./Config/Socket.js"
 import path from "path"
 
 dotenv.config()
-const __dirname = path.resolve()
-console.log("dirname::",__dirname)
+// const __dirname = path.resolve()
+// console.log("dirname::",__dirname)
 
 app.use(express.json({ limit: "50mb" }))
 app.use(
@@ -36,15 +36,15 @@ app.use('/api/user',authRouter)
 app.use('/api/messages',messagesRouter)
 
 
-const frontendPath = path.join(__dirname, "../Frontend/ChatApp/dist");
-console.log("✅ Serving frontend from:", frontendPath);
+// const frontendPath = path.join(__dirname, "../Frontend/ChatApp/dist");
+// console.log("✅ Serving frontend from:", frontendPath);
 
-// Serve static frontend files
-app.use(express.static(frontendPath));
+// // Serve static frontend files
+// app.use(express.static(frontendPath));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(frontendPath, "index.html"));
+// });
 
 
 server.listen(process.env.PORT,()=>{
