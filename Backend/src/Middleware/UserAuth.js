@@ -7,11 +7,11 @@ dotenv.config()
 export const UserAuth = async (req,res,next) =>{
 
     try {
-        
+       
         const token = req.cookies.jwt
 
         if(!token){
-            return res.status(401).json({ success: false, message: "Unauthorised - token not provided" })
+            return res.status(401).json({ success: false, message: "Unauthorised - token not provided", reqqqq: req })
         }
 
         const decoded = jwt.verify(token,process.env.JWT_SECRET_KEY)

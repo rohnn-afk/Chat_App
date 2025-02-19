@@ -8,7 +8,7 @@ import {connectCloudinary} from './Config/Cloudinary.js'
 import messagesRouter from './Routes/TextRouter.js'
 import fileUpload from "express-fileupload"
 import {app,server,io} from "./Config/Socket.js"
-import path from "path"
+// import path from "path"
 
 dotenv.config()
 // const __dirname = path.resolve()
